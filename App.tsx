@@ -355,7 +355,7 @@ const App: React.FC = () => {
       if (event.year === -560 && gameState.civilization.name.includes('Assyria')) {
           const statsToHalve: StatKey[] = ['martial', 'defense', 'faith', 'industry', 'science', 'culture', 'capacity'];
           statsToHalve.forEach(key => {
-              if (key === 'capacity') mergedStats.capacity = Math.floor(mergedStats.capacity / 2);
+              if (key === 'capacity') mergedStats.capacity = Math.floor((mergedStats.capacity || 0) / 2);
               else (mergedStats as any)[key] = Math.floor(((mergedStats as any)[key] || 0) / 2);
           });
       }
